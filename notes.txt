@@ -1,0 +1,150 @@
+created folder bookstore
+inside 2 folders frontend, backend
+in backend npm init -y
+inside package.json 
+type= module
+inside scripts
+start: node index.js
+dev : nodemon index.js
+
+inside frontend
+gitignore
+readme.md
+
+create config.js containing port number
+inside index.js set basic app
+
+for each url we need http route
+default route is /
+that's why a blank app has cannot get /
+
+app.get('/',(req,res) => {
+    res.send("Welcome to MERN stack tutorial"); // Default status is 200
+    return res.status(234).send("Welcome to mern stack tutorial"); // setting status too
+});
+
+
+I was stuck in connecting to mongodb server setup
+export const mongoDBURL = 
+"mongodb+srv://ge84zon:WZnWHIqXyR5D7otP@base1.rkbpewi.mongodb.net/?retryWrites=true&w=majority";
+
+Because I generated a new password to connect to db earlier 
+when i used the login password obviously i got rejected
+then i looked into yelpcamp
+
+
+set post route
+
+in postman
+body
+give a json file of key value pairs to mimic post forms (easy to test backend without creating form
+
+//Middleware to parse req body
+app.use(express.json());
+Colt used app.use(express.urlencoded())
+
+the timestamp included in Book model ensures the time of creation gets stored
+
+
+Setup routes for 
+Creating a book
+Updating a book
+Deleting a book
+Viewing a book
+Show all books
+
+
+Refactoring Express Routes with Route folder 
+
+
+Now refactoring the Express Routes with React routes
+IF we have 8 models, each have 5 routes , then we write 40 routes ?
+
+CORS Policy
+Cross Origin Resource Sharing
+Prevent unauthorized cross origin access to a resource or server
+check origin,methods etc and allow or deny requests
+So API requests from React get rejected by Node
+To bypass install npm i cors
+app.use(cors());
+This allows requests from all oroigins, i.e URL
+We can also allow origin from certain URLs only and that too only some methods
+
+
+Creating React:
+Luckily Vite is used
+
+In bookstore folder
+npm create vite@latest
+folder name frontend, 
+react and javascript
+
+add tailwing css
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+This creates tailwind.config.js and postcss.config.js files.
+add  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+inside tailwind.config.js file.
+
+In react src 
+delete app.css
+in index.css delete all and paste 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Download ES7+ extension in VS code for rafc to create new component
+
+SPA and add react router dom
+Single Page Application - application
+our application would not be refreshed on page change
+
+npm i react-router-dom
+in main.jsx
+import {BrowserRouter} from 'react-router-dom'
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+
+create  Home 
+CreateBooks 
+ShowBook 
+ EditBook 
+DeleteBook 
+in pages folder for each page to be displayed
+
+in app.jsx
+we import pages and render for each path
+import {Routes, Route} from 'react-router-dom'
+import Home from './pages/Home';
+import CreateBooks from './pages/CreateBooks';
+import ShowBook from './pages/ShowBook';
+import EditBook from './pages/EditBook';
+import DeleteBook from './pages/DeleteBook';
+
+      <Routes>
+        <Route path='/' element = {<Home} />
+        <Route path='/books/create' element = {<CreateBooks} />
+        <Route path='/books/details/:id' element = {<ShowBook} />
+        <Route path='/books/edit/:id' element = {<EditBook} />
+        <Route path='/books/delete/:id' element = {DeleteBook} />
+      </Routes>
+
+For HTTP Requests install axios and icons for Icons
+npm i axios react-icons
+
+
+
+Now run frontend 
+
+Component for loading State
+in src make components folder and inside it Spinner.jsx
+
+
+
+
+
+
